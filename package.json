@@ -1,15 +1,16 @@
 {
   "name": "covid19",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": "Alessandro Colinucci",
+  "homepage": "https://acolinucci.com/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "node scripts/version.js"
   },
   "private": true,
   "dependencies": {
@@ -53,5 +54,5 @@
     "tslint": "~5.15.0",
     "typescript": "~3.4.3"
   },
-  "description": "An Ionic project"
+  "description": "Ionic project that shows the current status of Covid-19 all over the world."
 }
