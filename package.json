@@ -1,6 +1,6 @@
 {
   "name": "covid19",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "author": "Alessandro Colinucci",
   "homepage": "https://acolinucci.com/",
   "scripts": {
@@ -43,6 +43,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "^5.0.0",
+    "git-describe": "^4.0.4",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.1.0",
