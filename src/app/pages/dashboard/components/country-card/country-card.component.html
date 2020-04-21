@@ -1,3 +1,46 @@
-<p>
-  country-card works!
-</p>
+<ion-card class="ion-activatable ripple-parent">
+
+  <ion-ripple-effect></ion-ripple-effect>
+
+  <ion-card-header>
+    <ion-card-subtitle>Last update: </ion-card-subtitle> <!-- {{ countryStatus?.date | date: 'E dd LLLL' }} -->
+    <ion-card-title>Italy</ion-card-title> <!-- {{ countryStatus?.country }} -->
+    <span class="flag-icon flag-icon-squared flag-icon-it"></span>
+  </ion-card-header>
+
+  <ion-card-content>
+
+    <ion-segment>
+      <ion-segment-button value="friends">
+        <ion-label>Today</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="enemies">
+        <ion-label>Total</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+    <ion-list class="ion-padding-top">
+
+      <ion-item>
+        <ion-icon slot="start" name="medkit-outline"></ion-icon>
+        <ion-label>Confirmed</ion-label>
+        <ion-note slot="end" mode="ios">12345</ion-note> <!-- {{ countryStatus?.totalConfirmed }} -->
+      </ion-item>
+
+      <ion-item>
+        <ion-icon slot="start" name="shield-checkmark-outline"></ion-icon>
+        <ion-label>Recovered</ion-label>
+        <ion-note slot="end" mode="ios">312566</ion-note> <!-- {{ countryStatus?.totalRecovered }} -->
+      </ion-item>
+
+      <ion-item>
+        <ion-icon slot="start" name="people-outline"></ion-icon>
+        <ion-label>Deaths</ion-label>
+        <ion-note slot="end" mode="ios">12345</ion-note> <!-- {{ countryStatus?.totalDeaths }} -->
+      </ion-item>
+
+    </ion-list>
+
+  </ion-card-content>
+
+</ion-card>

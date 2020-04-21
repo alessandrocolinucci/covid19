@@ -3,5 +3,6 @@ import { GlobalStatusDTO } from '../../models/global-status';
 
 export interface HttpSummaryResponse {
     Global: GlobalStatusDTO,
+    Date: string,
     Countries: CountryStatusDTO[]
 }
