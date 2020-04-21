@@ -1,0 +1,50 @@
+@font-face {
+    font-family: 'Manrope-Light';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url('/assets/fonts/Manrope-Light.woff2');
+}
+
+@font-face {
+    font-family: 'Manrope-Regular';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/assets/fonts/Manrope-Regular.woff2');
+}
+
+@font-face {
+    font-family: 'Manrope-SemiBold';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('/assets/fonts/Manrope-SemiBold.woff2');
+}
+
+@font-face {
+    font-family: 'Manrope-Bold';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('/assets/fonts/Manrope-Bold.woff2');
+}
+
+.text-light {
+    font-family: 'Manrope-Light' !important;
+}
+
+.text-semibold {
+    font-family: 'Manrope-SemiBold' !important;
+}
+
+.text-bold {
+    font-family: 'Manrope-Bold' !important;
+}
+
+*,
+:root[mode=ios],
+:root[mode=md] {
+  --ion-font-family: 'Manrope-Regular'!important;
+  font-family: 'Manrope-Regular' !important;
+}
