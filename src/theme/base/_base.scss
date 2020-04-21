@@ -1,0 +1,52 @@
+*,
+*::after,
+*::before {
+    outline: none;
+}
+
+html {
+
+    font-size: 62.5%; // 1rem = 10px => 10px/16px = 62.5%
+
+    // This media query order is important to not override media queries
+
+    // TODO: aggiustare le mixin
+
+    @include respond(tablet-landscape) {
+        font-size: 56.25%; // 9px
+    }
+
+    @include respond(tablet-portrait) {
+        font-size: 50%; // 8px
+    }
+
+    @include respond(bigdesktop) {
+        font-size: 75%; // 12px
+    }
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box !important;
+
+    // IOS tricks for PWA
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+
+    // MAKE TEXT SELECTABLE
+    -webkit-user-select: text;
+    user-select: text;
+}
+
+// HIGHLIGHT TEXT
+p::-moz-selection { color: var(--ion-color-light) }
+p::selection { color: var(--ion-color-light) }
+
+::-moz-selection { background: var(--ion-color-primary) }
+::selection { background: var(--ion-color-primary) }
+
+* ::-webkit-scrollbar {
+    display: none !important;
+}
