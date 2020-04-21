@@ -3,6 +3,7 @@ import { VERSION } from './../environments/version';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { ThemeService } from './commons/services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -30,7 +31,8 @@ export class AppComponent implements OnInit {
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private themeService: ThemeService
   ) {
     this.initializeApp();
   }
@@ -44,4 +46,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() { }
 
+  toggleDarkMode(ev: CustomEvent) {
+    this.themeService.toggleMode(ev.detail.checked);
+  }
 }
