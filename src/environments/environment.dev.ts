@@ -1,4 +1,4 @@
 export const environment = {
-    baseURL: 'https://api.covid19api.com/',
+    baseURL: 'https://api.thevirustracker.com/free-api?',
     production: false
 };

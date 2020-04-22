@@ -11,7 +11,8 @@ export class ApiService {
 
   private get ROUTES() {
     return {
-      summary: environment["baseURL"] + "summary",
+      global: environment["baseURL"] + "global=stats",
+      countries: environment["baseURL"] + "countryTotals=ALL",
     }
   }
 
@@ -19,7 +20,12 @@ export class ApiService {
     private httpClient: HttpClient
   ) { }
 
-  getSummary(): Observable<HttpSummaryResponse> {
-    return this.httpClient.get<HttpSummaryResponse>(this.ROUTES.summary);
+  getGlobalStats(): Observable<any> {
+    return this.httpClient.get(this.ROUTES.global);
   }
+
+  getCountriesStats(): Observable<any> {
+    return this.httpClient.get(this.ROUTES.countries);
+  }
+
 }
