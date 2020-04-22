@@ -7,5 +7,5 @@ export interface HttpGlobalResponse {
 }
 
 export interface HttpCountriesResponse {
-    countryitems: [ Map<number, CountryStatusDTO>[] ];
+    data: CountryStatusDTO[];
 }

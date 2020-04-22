@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { HttpGlobalResponse, HttpCountriesResponse } from './api.interface';
 import { map } from 'rxjs/operators';
+import { CountryStatus } from '../../models/country-status';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,7 @@ export class ApiService {
 
   private get ROUTES() {
     return {
-      global: environment["baseURL"] + "global=stats",
-      countries: environment["baseURL"] + "countryTotals=ALL",
+      countries: environment["endpointURL"] + "countries"
     }
   }
 
@@ -21,12 +21,8 @@ export class ApiService {
     private httpClient: HttpClient
   ) { }
 
-  getGlobalStats(): Observable<HttpGlobalResponse> {
-    return this.httpClient.get<HttpGlobalResponse>(this.ROUTES.global);
-  }
-
-  getCountriesStats(): Observable<any> {
-    return this.httpClient.get<HttpCountriesResponse>(this.ROUTES.countries).pipe(map(res => res.countryitems[0]));
+  getCountriesStats(): Observable<CountryStatus[]> {
+    return this.httpClient.get<HttpCountriesResponse>(this.ROUTES.countries).pipe(map(res => res.data.map(d => new CountryStatus(d))));
   }
 
 }
