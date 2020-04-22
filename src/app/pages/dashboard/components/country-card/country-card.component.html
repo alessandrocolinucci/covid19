@@ -3,14 +3,14 @@
   <ion-ripple-effect></ion-ripple-effect>
 
   <ion-card-header>
-    <ion-card-subtitle>Last update: </ion-card-subtitle> <!-- {{ countryStatus?.date | date: 'E dd LLLL' }} -->
-    <ion-card-title>Italy</ion-card-title> <!-- {{ countryStatus?.country }} -->
-    <span class="flag-icon flag-icon-squared flag-icon-it"></span>
+    <ion-card-subtitle>Country code: {{ countryStatus?.countryCode }}</ion-card-subtitle> 
+    <ion-card-title>{{ countryStatus?.country }}</ion-card-title> <!--  -->
+    <span [ngClass]="'flag-icon flag-icon-squared flag-icon-' + countryStatus?.countryCode?.toLowerCase()"></span>
   </ion-card-header>
 
   <ion-card-content>
 
-    <ion-segment>
+    <!-- <ion-segment>
       <ion-segment-button value="friends">
         <ion-label>Today</ion-label>
       </ion-segment-button>
@@ -24,22 +24,22 @@
       <ion-item>
         <ion-icon slot="start" name="medkit-outline"></ion-icon>
         <ion-label>Confirmed</ion-label>
-        <ion-note slot="end" mode="ios">12345</ion-note> <!-- {{ countryStatus?.totalConfirmed }} -->
+        <ion-note slot="end" mode="ios">12345</ion-note>
       </ion-item>
 
       <ion-item>
         <ion-icon slot="start" name="shield-checkmark-outline"></ion-icon>
         <ion-label>Recovered</ion-label>
-        <ion-note slot="end" mode="ios">312566</ion-note> <!-- {{ countryStatus?.totalRecovered }} -->
+        <ion-note slot="end" mode="ios">312566</ion-note>
       </ion-item>
 
       <ion-item>
         <ion-icon slot="start" name="people-outline"></ion-icon>
         <ion-label>Deaths</ion-label>
-        <ion-note slot="end" mode="ios">12345</ion-note> <!-- {{ countryStatus?.totalDeaths }} -->
+        <ion-note slot="end" mode="ios">12345</ion-note>
       </ion-item>
 
-    </ion-list>
+    </ion-list> -->
 
   </ion-card-content>
 

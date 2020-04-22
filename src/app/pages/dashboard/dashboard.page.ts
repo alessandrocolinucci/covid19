@@ -18,10 +18,13 @@ export class DashboardPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.apiService.getSummary().subscribe(response => {
-      this.globalStatus = new GlobalStatus(response.Global);
-      this.countriesStatus = response.Countries.map(c => new CountryStatus(c));
+    this.apiService.getGlobalStats().subscribe(res => {
+      this.globalStatus = new GlobalStatus(res.results[0]);
     })
+
+    this.apiService.getCountriesStats().subscribe((res) => {
+      this.countriesStatus = Object.keys(res).map(k => new CountryStatus(res[k]));
+    });
   }
 
 }
