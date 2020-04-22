@@ -41,4 +41,8 @@ export class CountryStatus {
         }
     }
     
+    get mortalityRate(): string {
+        return ((this.deaths / this.cases) * 100).toFixed(2);
+    }
+    
 }
