@@ -5,12 +5,14 @@ import { IonicModule } from '@ionic/angular';
 import { DashboardPageRoutingModule } from './dashboard-routing.module';
 import { DashboardPage } from './dashboard.page';
 import { CountryCardComponent } from './components/country-card/country-card.component';
+import { SharedModule } from 'src/app/commons/modules/shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    SharedModule,
     DashboardPageRoutingModule
   ],
   declarations: [

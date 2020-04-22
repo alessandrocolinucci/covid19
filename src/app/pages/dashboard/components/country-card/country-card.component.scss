@@ -9,12 +9,16 @@ ion-item {
     --background: transparent;
 }
 
+ion-card {
+    margin: 8px;
+}
+
 span.flag-icon {
     position: absolute;
     top: 16px;
     right: 16px;
-    width: 5.5rem;
-    height: 5.5rem;
-    border-radius: 5.5rem;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 5rem;
     object-fit: cover;
 }

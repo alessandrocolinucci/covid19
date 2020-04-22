@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { CountryStatus } from 'src/app/commons/models/country-status';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { CountryStatus, Country } from 'src/app/commons/models/country-status';
 
 @Component({
   selector: 'app-country-card',
@@ -9,9 +9,14 @@ import { CountryStatus } from 'src/app/commons/models/country-status';
 export class CountryCardComponent implements OnInit {
 
   @Input() countryStatus: CountryStatus;
+  @Output('onDetails') detailsEmitter: EventEmitter<Country> = new EventEmitter<Country>();
 
   constructor() { }
 
   ngOnInit() {}
+
+  emitDetails() {
+    this.detailsEmitter.emit(this.countryStatus.country);
+  }
 
 }

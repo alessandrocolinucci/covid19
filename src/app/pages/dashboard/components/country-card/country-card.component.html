@@ -1,11 +1,13 @@
-<ion-card class="ion-activatable ripple-parent">
+<ion-card class="ion-activatable ripple-parent" (click)="emitDetails()">
 
   <ion-ripple-effect></ion-ripple-effect>
 
   <ion-card-header>
-    <ion-card-subtitle>Country code: {{ countryStatus?.countryCode }}</ion-card-subtitle> 
-    <ion-card-title>{{ countryStatus?.country }}</ion-card-title> <!--  -->
-    <span [ngClass]="'flag-icon flag-icon-squared flag-icon-' + countryStatus?.countryCode?.toLowerCase()"></span>
+    <ion-card-subtitle>
+      Updated <span class="text-semibold">{{ countryStatus?.updatedAt | dateAgo }}</span>
+    </ion-card-subtitle> 
+    <ion-card-title>{{ countryStatus?.country.name }}</ion-card-title> <!--  -->
+    <span [ngClass]="'flag-icon flag-icon-squared flag-icon-' + countryStatus?.country?.code?.toLowerCase()"></span>
   </ion-card-header>
 
   <ion-card-content>

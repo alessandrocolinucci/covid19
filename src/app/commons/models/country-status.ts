@@ -1,48 +1,81 @@
-export interface CountryStatusDTO {
-    title: string;
+export interface CountryCoordinates {
+    latitude: number;
+    longitude: number;
+}
+
+export interface Country {
     code: string;
-    total_cases: number;
-    total_recovered: number;
-    total_unresolved: number;
-    total_deaths: number;
-    total_new_cases_today: number;
-    total_new_deaths_today: number;
-    total_active_cases: number;
-    total_serious_cases: number;
-    total_danger_rank?: number;
+    name: string;
+    population: number;
+    coordinates: CountryCoordinates;
+}
+
+export interface Stats {
+    deathRate: number;
+    recoveryRate: number;
+    recoveredVsDeathRatio: number;
+    casesPerMillionPopulation: number;
+}
+
+export interface CountryStatusDTO {
+    coordinates: CountryCoordinates;
+    name: string;
+    code: string;
+    population: number;
+    updated_at: string;
+    today: {
+        deaths: number; 
+        confirmed: number;
+    };
+    latest_data: {
+        deaths: number;
+        confirmed: number;
+        recovered: number; 
+        critical: number; 
+        calculated: {
+            death_rate: number;
+            recovery_rate: number;
+            recovered_vs_death_ratio: number;
+            cases_per_million_population: number;
+        }
+    }
 }
 
 export class CountryStatus {
 
-    country: string;
-    countryCode: string;
-    cases: number;
+    country: Country;
+    confirmed: number;
     recovered: number;
-    unresolved: number;
     deaths: number;
-    active: number;
-    serious: number;
-    newCases: number;
+    newConfirmed: number;
     newDeaths: number;
-    dangerRank?: number;
+    stats: Stats;
+    updatedAt: Date;
 
     constructor(dto: CountryStatusDTO) {
         if (dto) {
-            this.country = dto.title;
-            this.countryCode = dto.code;
-            this.cases = dto.total_cases;
-            this.recovered = dto.total_recovered;
-            this.unresolved = dto.total_unresolved;
-            this.deaths = dto.total_deaths;
-            this.active = dto.total_serious_cases;
-            this.newCases = dto.total_new_cases_today;
-            this.newDeaths = dto.total_new_deaths_today;
-            this.dangerRank = dto.total_danger_rank;
+            this.country = {
+                code: dto.code,
+                name: dto.name,
+                population: dto.population,
+                coordinates: {
+                    latitude: dto.coordinates.latitude,
+                    longitude: dto.coordinates.longitude
+                }
+            }
+            this.confirmed = dto.latest_data.confirmed;
+            this.recovered = dto.latest_data.recovered;
+            this.deaths = dto.latest_data.deaths;
+            this.newConfirmed = dto.today.confirmed;
+            this.newDeaths = dto.today.deaths;
+            this.stats = {
+                casesPerMillionPopulation: dto.latest_data.calculated.cases_per_million_population,
+                deathRate: dto.latest_data.calculated.death_rate,
+                recoveredVsDeathRatio: dto.latest_data.calculated.recovered_vs_death_ratio,
+                recoveryRate: dto.latest_data.calculated.recovery_rate
+            }
+            this.updatedAt = dto.updated_at ? new Date(dto.updated_at) : null;
         }
-    }
-    
-    get mortalityRate(): string {
-        return ((this.deaths / this.cases) * 100).toFixed(2);
     }
     
 }

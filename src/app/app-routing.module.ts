@@ -8,7 +8,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/dashboard/dashboard.module').then( m => m.DashboardPageModule)
   },
   {
-    path: 'country',
+    path: 'country/:code',
     loadChildren: () => import('./pages/country/country.module').then( m => m.CountryPageModule)
   },
   {
