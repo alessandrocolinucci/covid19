@@ -1,3 +1,5 @@
+import { TimelineStatus, TimelineStatusDTO } from './timeline-status';
+
 export interface CountryCoordinates {
     latitude: number;
     longitude: number;
@@ -39,6 +41,7 @@ export interface CountryStatusDTO {
             cases_per_million_population: number;
         }
     }
+    timeline?: TimelineStatusDTO[];
 }
 
 export class CountryStatus {
@@ -46,11 +49,13 @@ export class CountryStatus {
     country: Country;
     confirmed: number;
     recovered: number;
+    critical: number;
     deaths: number;
     newConfirmed: number;
     newDeaths: number;
     stats: Stats;
     updatedAt: Date;
+    timeline?: TimelineStatus[];
 
     constructor(dto: CountryStatusDTO) {
         if (dto) {
@@ -65,6 +70,7 @@ export class CountryStatus {
             }
             this.confirmed = dto.latest_data.confirmed;
             this.recovered = dto.latest_data.recovered;
+            this.critical = dto.latest_data.critical;
             this.deaths = dto.latest_data.deaths;
             this.newConfirmed = dto.today.confirmed;
             this.newDeaths = dto.today.deaths;
@@ -75,6 +81,7 @@ export class CountryStatus {
                 recoveryRate: dto.latest_data.calculated.recovery_rate
             }
             this.updatedAt = dto.updated_at ? new Date(dto.updated_at) : null;
+            this.timeline = dto.timeline ? dto.timeline.map(t => new TimelineStatus(t)) : null;
         }
     }
     
