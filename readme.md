@@ -6,7 +6,6 @@ This application shows the current status of Covid-19 all over the world.
 
 -   Ionic 5 + Angular
 -   Capacitor 2.0
--   NgRx
 -   BEM styling pattern
 
 ### Backend
