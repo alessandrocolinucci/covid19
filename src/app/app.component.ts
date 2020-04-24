@@ -19,12 +19,12 @@ export class AppComponent implements OnInit {
     {
       title: 'Dashboard',
       url: '/',
-      icon: 'home'
+      icon: 'grid-outline'
     },
     {
       title: 'About',
       url: '/about',
-      icon: 'information-circle'
+      icon: 'information-circle-outline'
     }
   ];
 

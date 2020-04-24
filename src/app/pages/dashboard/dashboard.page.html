@@ -9,32 +9,25 @@
     </ion-title>
     <ion-buttons slot="primary">      
       <ion-button>
-        <ion-icon slot="icon-only" name="grid-outline"></ion-icon>
+        <ion-icon slot="icon-only" name="search-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-  </ion-toolbar>
-  <ion-toolbar>
-    <ion-searchbar placeholder='Try "Italy"' animated mode="ios"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-  <!-- <div *ngIf="!globalStatus">
-    <div class="ion-padding custom-skeleton">
-      <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-      <ion-skeleton-text animated></ion-skeleton-text>
-      <ion-skeleton-text animated style="width: 88%"></ion-skeleton-text>
-      <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
-      <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-    </div>
-  </div> -->
   <ion-grid>
+
     <ion-row>
-      <ion-col size-xl="4" size-lg="6" size-md="6" size-sm="6" size-xs="12" *ngFor="let countryStatus of countriesStatus">
-        <app-country-card [countryStatus]="countryStatus" (onDetails)="goToDetail($event)"></app-country-card>
+      <ion-col size="8">
+        
+      </ion-col>
+      <ion-col size="4">
+        
       </ion-col>
     </ion-row>
+
   </ion-grid>
-  
+    
 </ion-content>
