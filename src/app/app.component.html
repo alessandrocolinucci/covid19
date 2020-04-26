@@ -2,23 +2,55 @@
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
-        <ion-list id="inbox-list">
- 
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
-              <ion-icon slot="start" [name]="p.icon"></ion-icon>
-              <ion-label>{{ p.title }}</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-          
-          <ion-menu-toggle auto-hide="false">
-            <ion-item lines="full">
-              <ion-icon slot="start" name="moon-outline"></ion-icon>
-              <ion-label>Dark Mode</ion-label>
-              <ion-toggle id="themeToggle" slot="end" (ionChange)="toggleDarkMode($event)"></ion-toggle>
-            </ion-item>
-          </ion-menu-toggle>
-        </ion-list>
+
+        <div class="menu-container">
+
+          <!-- <img src="/assets/img/covid__cover.jpg" alt="Coronavirus Cover Photo"> -->
+
+          <ion-list id="inbox-list">
+   
+            <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+              <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
+                <ion-icon slot="start" [name]="p.icon"></ion-icon>
+                <ion-label>{{ p.title }}</ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+            
+          </ion-list>
+  
+          <div>
+            <ion-card mode="ios">
+              <ion-card-header>
+                <ion-card-title>
+                  Dark mode
+                </ion-card-title>  
+              </ion-card-header>
+              <ion-card-content>
+                <p class="ion-text-wrap">Toggle dark mode to try a different experience.</p>
+                <ion-item class="ion-margin-top ion-no-padding" lines="none">
+                  <ion-icon slot="start" name="moon-outline" color="tertiary"></ion-icon>
+                  <ion-toggle color="tertiary" slot="end" (ionChange)="toggleDarkMode($event)"></ion-toggle>
+                </ion-item>
+              </ion-card-content>
+            </ion-card>
+            <ion-card mode="ios">
+              <ion-card-header>
+                <ion-card-title>
+                  Install App
+                </ion-card-title>  
+              </ion-card-header>
+              <ion-card-content>
+                <p class="ion-text-wrap">Add this web application to your Home screen.</p>
+                <ion-item class="ion-margin-top ion-no-padding" lines="none">
+                  <ion-icon color="primary" name="newspaper-outline" slot="start"></ion-icon>
+                  <ion-button color="primary" fill="outline" slot="end"><span class="text-bold">Add to Home</span></ion-button>
+                </ion-item>
+              </ion-card-content>
+            </ion-card>
+          </div>
+
+
+        </div>
 
       </ion-content>
       <ion-footer>

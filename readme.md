@@ -10,4 +10,4 @@ This application shows the current status of Covid-19 all over the world.
 
 ### Backend
 
-This application lives on top of [covid19 Api](https://covid19api.com/).
+This application lives on top of [About Corona Api](https://about-corona.net/).

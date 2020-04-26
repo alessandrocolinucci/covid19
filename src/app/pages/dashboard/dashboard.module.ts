@@ -6,6 +6,7 @@ import { DashboardPageRoutingModule } from './dashboard-routing.module';
 import { DashboardPage } from './dashboard.page';
 import { CountryCardComponent } from './components/country-card/country-card.component';
 import { SharedModule } from 'src/app/commons/modules/shared/shared.module';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import { SharedModule } from 'src/app/commons/modules/shared/shared.module';
     FormsModule,
     IonicModule,
     SharedModule,
+    NgCircleProgressModule,
     DashboardPageRoutingModule
   ],
   declarations: [

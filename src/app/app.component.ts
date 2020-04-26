@@ -49,4 +49,5 @@ export class AppComponent implements OnInit {
   toggleDarkMode(ev: CustomEvent) {
     this.themeService.toggleMode(ev.detail.checked);
   }
+
 }

@@ -7,11 +7,13 @@ export class ThemeService {
 
   darkMode: boolean = false;
 
-  constructor() { }
+  constructor() { 
+
+  }
 
   toggleMode(checked: boolean) {
     console.log(`Dark Mode: ${checked}`);
-    window.document.body.classList.toggle('dark', checked);;
+    window.document.body.classList.toggle('dark', checked);
   }
 
 }

@@ -30,6 +30,7 @@ export class TimelineStatus {
             this.date = dto.date ? new Date(dto.date) : null;
             this.confirmed = dto.confirmed;
             this.recovered = dto.recovered;
+            this.deaths = dto.deaths;
             this.active = dto.active;
             this.newConfirmed = dto.new_confirmed;
             this.newRecovered = dto.new_recovered;

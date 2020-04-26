@@ -1,9 +1,72 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>about</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <span class="text-light">COVID19</span>
+      <span class="text-bold">TRACKER</span>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-grid class="ion-padding">
+    <ion-row class="ion-align-items-center">
+      <ion-col size-lg="6" size-md="12" size-sm="12" size-xs="12" class="ion-align-items-end">
+        <ion-text>
+          <h2 class="text-bold ion-margin-bottom">About this project</h2>
+        </ion-text>
+        <ion-text color="medium">
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+            Illum deleniti autem impedit. Quae rerum, animi ab culpa voluptatum veritatis debitis.
+          </p>
+        </ion-text>
+      </ion-col>
+      <ion-col size-lg="6" size-md="12" size-sm="12" size-xs="12">
+        <ion-card mode="ios">
+          <ion-card-header>
+            <ion-card-title>
+              Read more about Coronavirus on Medium
+            </ion-card-title>  
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item class="ion-margin-top ion-no-padding">
+              <ion-icon color="primary" name="newspaper-outline" slot="start"></ion-icon>
+              <ion-button color="primary" fill="clear" slot="end"><span class="text-bold">Read more</span></ion-button>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+        <ion-card mode="ios">
+          <ion-card-header>
+            <ion-card-title>
+              Symptoms of coronavirus that you should know
+            </ion-card-title>  
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item class="ion-margin-top ion-no-padding">
+              <ion-icon color="secondary" name="document-text-outline" slot="start"></ion-icon>
+              <ion-button color="secondary" fill="clear" slot="end"><span class="text-bold">Read the symptoms</span></ion-button>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+        <ion-card mode="ios">
+          <ion-card-header>
+            <ion-card-title>
+              Donate to COVID-19 Solidarity Response Fund
+            </ion-card-title>  
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item class="ion-margin-top ion-no-padding">
+              <ion-icon color="tertiary" name="wallet-outline" slot="start"></ion-icon>
+              <ion-button color="tertiary" fill="clear" slot="end"><span class="text-bold">Donate</span></ion-button>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

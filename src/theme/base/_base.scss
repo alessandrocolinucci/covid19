@@ -4,27 +4,6 @@
     outline: none;
 }
 
-html {
-
-    font-size: 62.5%; // 1rem = 10px => 10px/16px = 62.5%
-
-    // This media query order is important to not override media queries
-
-    // TODO: aggiustare le mixin
-
-    @include respond(tablet-landscape) {
-        font-size: 56.25%; // 9px
-    }
-
-    @include respond(tablet-portrait) {
-        font-size: 50%; // 8px
-    }
-
-    @include respond(bigdesktop) {
-        font-size: 75%; // 12px
-    }
-}
-
 body {
     height: 100%;
     width: 100%;

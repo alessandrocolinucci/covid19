@@ -30,6 +30,44 @@
     src: url('/assets/fonts/Manrope-Bold.woff2');
 }
 
+h1, h2, h3, h4, h5, h6 {
+	line-height: 1.25; 
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: calc(39.06px + (48.83 - 39.06) * ((100vw - 320px) / (1200 - 320)));
+}
+
+h2 {
+    font-size: calc(31.25px + (39.06 - 31.25) * ((100vw - 320px) / (1200 - 320)));
+}
+
+h3 {
+    font-size: calc(25.00px + (31.25 - 25.00) * ((100vw - 320px) / (1200 - 320)));
+}
+
+h4 {
+    font-size: calc(20.00px + (25.00 - 20.00) * ((100vw - 320px) / (1200 - 320)));
+}
+
+h5 {
+    font-size: calc(16.00px + (20.00 - 16.00) * ((100vw - 320px) / (1200 - 320)));
+}
+
+h6 {
+    font-size: calc(15.00px + (16.00 - 15.00) * ((100vw - 320px) / (1200 - 320)));
+}
+
+p, a {
+    font-size: calc(14.00px + (16.00 - 14.00) * ((100vw - 320px) / (1200 - 320)));
+}
+
 .text-light {
     font-family: 'Manrope-Light' !important;
 }
