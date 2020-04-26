@@ -39,6 +39,7 @@
                 "src/theme",
                 "src/theme/abstract",
                 "src/theme/base",
+                "src/theme/layout",
                 "src/theme/vendor"
               ]
             },

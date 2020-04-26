@@ -6,6 +6,14 @@
 @import 'theme/base/base';
 @import 'theme/base/typography';
 
+// LAYOUT
+@import 'theme/layout/general';
+
 // VENDOR
 @import 'theme/vendor/ionic';
 @import 'theme/vendor/flag-icon';
+
+.toolbar-title {
+    display: flex !important;
+    align-items: center !important;
+}

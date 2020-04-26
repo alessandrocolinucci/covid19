@@ -26,6 +26,6 @@ p::selection { color: var(--ion-color-light) }
 ::-moz-selection { background: var(--ion-color-primary) }
 ::selection { background: var(--ion-color-primary) }
 
-* ::-webkit-scrollbar {
+::-webkit-scrollbar {
     display: none !important;
 }

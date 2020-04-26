@@ -7,3 +7,7 @@ export interface HttpGlobalResponse {
 export interface HttpCountriesResponse {
     data: CountryStatusDTO[];
 }
+
+export interface HttpCountryResponse {
+    data: CountryStatusDTO;
+}

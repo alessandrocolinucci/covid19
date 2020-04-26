@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { CountryStatusResolver } from './commons/resolvers/country-status-resolver.service';
 
 const routes: Routes = [
   {
@@ -9,6 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'country/:code',
+    resolve: { countryStatus: CountryStatusResolver },
     loadChildren: () => import('./pages/country/country.module').then( m => m.CountryPageModule)
   },
   {
@@ -21,6 +23,11 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
   ],
-  exports: [RouterModule]
+  exports: [
+    RouterModule
+  ],
+  providers: [
+    CountryStatusResolver
+  ]
 })
 export class AppRoutingModule {}

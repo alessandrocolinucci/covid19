@@ -4,8 +4,11 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      <span class="text-light">COVID19</span>
-      <span class="text-bold">TRACKER</span>
+      <div class="title-container">
+        <span class="text-light">COVID19</span>
+        <span class="text-bold">TRACKER</span> 
+        <img width="33" height="33" src="/assets/img/covid__logo.svg" alt="Covid19 Tracker Logo">  
+      </div>    
     </ion-title>
     <ion-buttons slot="primary">      
       <ion-button>
@@ -152,7 +155,7 @@
             <ion-card-title>Top 10 countries</ion-card-title>
           </ion-card-header>
           <ion-card-content *ngIf="countriesStatus">
-            <ion-item *ngFor="let countryStatus of countriesStatus | slice:0:10" class="ion-no-padding ion-activatable" tappable detail>
+            <ion-item *ngFor="let countryStatus of countriesStatus | slice:0:10" class="ion-no-padding ion-activatable" tappable detail (click)="goToDetail(countryStatus.country)">
               <ion-ripple-effect></ion-ripple-effect>
               <ion-avatar>
                 <span [ngClass]="'flag-icon flag-icon-' + countryStatus?.country?.code?.toLowerCase()"></span>
