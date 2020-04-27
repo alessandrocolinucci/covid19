@@ -1,0 +1,36 @@
+
+ion-card {
+
+    margin: 0;
+
+    circle-progress {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+    }
+
+
+    ion-list,
+    ion-item {
+        background: transparent;
+        --background: transparent;
+    }
+
+    span.flag-icon {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+    }
+
+    .country-cases {
+       margin: 0;
+    }
+
+    .percentage {
+        font-size: 14px;
+        font-family: 'Manrope-Light' !important;
+    }
+}

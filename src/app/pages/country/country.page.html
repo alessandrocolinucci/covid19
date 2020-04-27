@@ -3,10 +3,155 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref=""></ion-back-button>
     </ion-buttons>
-    <ion-title>country</ion-title>
+    <ion-title>{{ countryStatus?.country?.name }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size-lg="6" size-md="6" size-sm="12" size-xs="12">
+        <ion-row>
+          <ion-col size="12">
+            <ion-card mode="ios">
+              <ion-card-header>
+                <ion-card-title>General</ion-card-title>
+                <span [ngClass]="'flag-icon flag-icon-' + countryStatus?.country?.code?.toLowerCase()"></span>
+              </ion-card-header>
+              <ion-card-content>
+                <ion-list>
+                  <ion-item class="ion-no-padding" lines="full">
+                    <ion-icon name="medkit-outline" slot="start"></ion-icon>
+                    <ion-label>
+                      <h2 class="text-semibold">Infected</h2>
+                    </ion-label>
+                    <ion-label slot="end" class="ion-text-right country-cases">
+                      <h2 class="text-bold">{{ countryStatus?.confirmed | number }}</h2>
+                    </ion-label>
+                  </ion-item>
+                  <ion-item class="ion-no-padding" lines="full">
+                    <ion-icon name="medkit-outline" slot="start"></ion-icon>
+                    <ion-label>
+                      <h2 class="text-semibold">Deaths</h2>
+                    </ion-label>
+                    <ion-label slot="end" class="ion-text-right country-cases">
+                      <h2 class="text-bold">{{ countryStatus?.deaths | number }}</h2>
+                    </ion-label>
+                  </ion-item>
+                  <ion-item class="ion-no-padding" lines="full">
+                    <ion-icon name="medkit-outline" slot="start"></ion-icon>
+                    <ion-label>
+                      <h2 class="text-semibold">Recovered</h2>
+                    </ion-label>
+                    <ion-label slot="end" class="ion-text-right country-cases">
+                      <h2 class="text-bold">{{ countryStatus?.recovered | number }}</h2>
+                    </ion-label>
+                  </ion-item>
+                  <ion-item class="ion-no-padding" lines="full">
+                    <ion-icon name="medkit-outline" slot="start"></ion-icon>
+                    <ion-label>
+                      <h2 class="text-semibold">Critical</h2>
+                    </ion-label>
+                    <ion-label slot="end" class="ion-text-right country-cases">
+                      <h2 class="text-bold">{{ countryStatus?.critical | number }}</h2>
+                    </ion-label>
+                  </ion-item>
+                </ion-list>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col size="12">
+            <ion-card>
+              <ion-card-header>
+                <ion-card-subtitle>Report updated {{ countryStatus?.updatedAt | dateAgo }}</ion-card-subtitle>
+                <ion-card-title>
+                  Today
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+    
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col size-lg="6" size-md="6" size-sm="12" size-xs="12">
+        <ion-row>
+          <ion-col size="12">
+            <ion-card>
+              <ion-card-title>
+
+              </ion-card-title>
+            </ion-card>
+          </ion-col>
+          <ion-col size="12">
+            <ion-card mode="ios">
+              <ion-card-header>
+                <ion-card-subtitle>Recovery Ratio</ion-card-subtitle>
+                <ion-card-title>
+                  {{ countryStatus?.stats?.recoveryRate.toFixed(2) }}<span class="percentage">%</span>
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <ion-label>
+                  <p class="ion-text-wrap"><span class="text-bold">{{ countryStatus?.confirmed | number }}</span> infected</p>
+                  <p class="ion-text-wrap"><span class="text-bold">{{ countryStatus?.recovered | number }}</span> recovered</p>
+                </ion-label>
+              </ion-card-content>
+              <circle-progress 
+                [percent]="countryStatus?.stats?.recoveryRate" 
+                [radius]="50"
+                [title]="countryStatus?.stats?.recoveryRate.toFixed(2)"
+                [titleFontSize]="14"
+                [titleFontWeight]="700"
+                [titleColor]="'var(--ion-color-dark)'"
+                [showSubtitle]="false"
+                [showUnits]="false"
+                [outerStrokeWidth]="8"
+                [innerStrokeWidth]="4"
+                [outerStrokeColor]="'var(--ion-color-primary)'"
+                [innerStrokeColor]="'var(--ion-color-secondary)'"
+                [animation]="true"
+                [animationDuration]="500"
+            ></circle-progress>
+            </ion-card>
+          </ion-col>
+          <ion-col size="12">
+            <ion-card mode="ios">
+              <ion-card-header>
+                <ion-card-subtitle>Death Ratio</ion-card-subtitle>
+                <ion-card-title>
+                  {{ countryStatus?.stats?.deathRate.toFixed(2) }}<span class="percentage">%</span>
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <ion-label>
+                  <p class="ion-text-wrap"><span class="text-bold">{{ countryStatus?.confirmed | number }}</span> infected</p>
+                  <p class="ion-text-wrap"><span class="text-bold">{{ countryStatus?.deaths | number }}</span> recovered</p>
+                </ion-label>
+              </ion-card-content>
+              <circle-progress 
+                [percent]="countryStatus?.stats?.deathRate" 
+                [radius]="50"
+                [title]="countryStatus?.stats?.deathRate.toFixed(2)"
+                [titleFontSize]="14"
+                [titleFontWeight]="700"
+                [titleColor]="'var(--ion-color-dark)'"
+                [showSubtitle]="false"
+                [showUnits]="false"
+                [outerStrokeWidth]="8"
+                [innerStrokeWidth]="4"
+                [outerStrokeColor]="'var(--ion-color-primary)'"
+                [innerStrokeColor]="'var(--ion-color-secondary)'"
+                [animation]="true"
+                [animationDuration]="500"
+            ></circle-progress>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

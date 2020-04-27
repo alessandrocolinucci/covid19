@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { CountryStatus } from 'src/app/commons/models/country-status';
 
 @Component({
   selector: 'app-country',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CountryPage implements OnInit {
 
-  constructor() { }
+  countryStatus: CountryStatus;
+
+  constructor(
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    console.log(this.route.snapshot.data["countryStatus"]);
+    this.countryStatus = this.route.snapshot.data.countryStatus;
+
   }
 
 }
