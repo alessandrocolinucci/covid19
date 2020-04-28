@@ -162,8 +162,8 @@
               </ion-avatar>
               <ion-label>
                 <h2 class="text-semibold">{{ countryStatus?.country?.name }}</h2>
-                <ion-text color="danger">
-                  <p class="ion-text-wrap">+ {{ countryStatus?.newConfirmed | number }}</p>
+                <ion-text color="success">
+                  <p class="ion-text-wrap">{{ countryStatus?.recovered | number }} recovered</p>
                 </ion-text>
               </ion-label>
               <ion-label slot="end" class="ion-text-right country-cases">
