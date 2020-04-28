@@ -37,7 +37,14 @@ ion-card {
     circle-progress {
         position: absolute;
         top: 16px;
-        right: 16px;
+        right: 8px;
+    }
+
+    .illustration {
+        width: 70%;
+        height: 130px;
+        display: block;
+        margin: -24px 0 0 auto;
     }
 }
 

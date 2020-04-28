@@ -104,9 +104,10 @@
                   Population: 
                   <span class="text-bold">{{ countryStatus?.country?.population | number }}</span>
                 </ion-card-subtitle>
-                <ion-card-title>
+                <ion-card-title class="population-title">
                   {{ countryStatus?.stats?.casesPerMillionPopulation | number }}
-                  <span class="percentage"> infected per 1 milion population</span>
+                  <span class="percentage">cases</span>
+                  <p class="percentage">per 1M population</p>
                 </ion-card-title>
               </ion-card-header>
               <ion-card-content>
