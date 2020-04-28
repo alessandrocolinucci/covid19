@@ -31,7 +31,9 @@ export class CountryPage implements OnInit {
       this.lineChart = new Chart(this.lineChart.nativeElement, {
         type: "line",
         data: {
-          labels: ["January", "February", "March", "April", "May", "June", "July"],
+          labels: this.countryStatus.timeline
+            .sort((a, b) => a.updatedAt.getTime() - b.updatedAt.getTime())
+            .map(t => t.updatedAt.getDate() + '/' + (t.updatedAt.getMonth() + 1)),
           datasets: [
             {
               label: "My First dataset",
@@ -52,7 +54,7 @@ export class CountryPage implements OnInit {
               pointHoverBorderWidth: 2,
               pointRadius: 1,
               pointHitRadius: 10,
-              data: [65, 59, 80, 81, 56, 55, 40],
+              data: this.countryStatus.timeline.map(t => t.confirmed),
               spanGaps: false
             }
           ]
@@ -61,4 +63,7 @@ export class CountryPage implements OnInit {
     }
   }
 
+  get populationInfectedRatio(): string {
+    return this.countryStatus ? ((this.countryStatus.confirmed / this.countryStatus.country.population) * 100).toFixed(2) : '';
+  }
 }
