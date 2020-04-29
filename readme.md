@@ -2,7 +2,7 @@
 
 This application shows the current status of Covid-19 all over the world.
 
-### Technologies
+### Technologies 
 
 -   Ionic 5 + Angular
 -   Capacitor 2.0
