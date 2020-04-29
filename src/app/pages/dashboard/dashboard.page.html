@@ -23,12 +23,12 @@
   <ion-grid>
 
     <!-- GLOBAL STATUS -->
-    <ion-row *ngIf="todayStatus">
+    <ion-row>
       <ion-col size-xl="3" size-lg="6" size-md="6" size-sm="12" size-xs="12">
         <ion-card mode="ios">
           <ion-card-header>
             <ion-card-subtitle>Infected</ion-card-subtitle>
-            <ion-card-title>{{ todayStatus?.confirmed | number }}</ion-card-title>
+            <ion-card-title *ngIf="todayStatus">{{ todayStatus?.confirmed | number }}</ion-card-title>
             <ion-icon name="medkit-outline" color="tertiary" class="card-icon"></ion-icon>
           </ion-card-header>
           <ion-card-content>
@@ -42,11 +42,11 @@
         <ion-card mode="ios">
           <ion-card-header>
             <ion-card-subtitle>Recovered</ion-card-subtitle>
-            <ion-card-title>{{ todayStatus.recovered | number }}</ion-card-title>
+            <ion-card-title *ngIf="todayStatus">{{ todayStatus.recovered | number }}</ion-card-title>
             <ion-icon name="shield-checkmark-outline" color="success" class="card-icon"></ion-icon>
           </ion-card-header>
           <ion-card-content>
-            <ion-label>
+            <ion-label *ngIf="todayStatus">
               <p class="ion-text-wrap"><span class="text-bold">+{{ todayStatus.newRecovered | number }}</span> today</p>
             </ion-label>
           </ion-card-content>
@@ -56,7 +56,7 @@
         <ion-card mode="ios">
           <ion-card-header>
             <ion-card-subtitle>Deaths</ion-card-subtitle>
-            <ion-card-title>{{ todayStatus.deaths | number }}</ion-card-title>
+            <ion-card-title *ngIf="todayStatus">{{ todayStatus.deaths | number }}</ion-card-title>
             <ion-icon name="bed-outline" color="danger" class="card-icon"></ion-icon>
           </ion-card-header>
           <ion-card-content>
@@ -70,7 +70,7 @@
         <ion-card mode="ios">
           <ion-card-header>
             <ion-card-subtitle>Active</ion-card-subtitle>
-            <ion-card-title>{{ todayStatus.active | number }}</ion-card-title>
+            <ion-card-title *ngIf="todayStatus">{{ todayStatus.active | number }}</ion-card-title>
             <ion-icon name="people-outline" color="warning" class="card-icon"></ion-icon>
           </ion-card-header>
           <ion-card-content>
@@ -154,26 +154,48 @@
             <ion-card-subtitle *ngIf="countriesStatus">Updated {{ countriesStatus[0]?.updatedAt | dateAgo }}</ion-card-subtitle>
             <ion-card-title>Top 10 countries</ion-card-title>
           </ion-card-header>
-          <ion-card-content *ngIf="countriesStatus">
-            <ion-item *ngFor="let countryStatus of countriesStatus | slice:0:10" class="ion-no-padding ion-activatable" tappable detail (click)="goToDetail(countryStatus.country)">
-              <ion-ripple-effect></ion-ripple-effect>
-              <ion-avatar>
-                <span [ngClass]="'flag-icon flag-icon-' + countryStatus?.country?.code?.toLowerCase()"></span>
-              </ion-avatar>
-              <ion-label>
-                <h2 class="text-semibold">{{ countryStatus?.country?.name }}</h2>
-                <ion-text color="success">
-                  <p class="ion-text-wrap">{{ countryStatus?.recovered | number }} recovered</p>
-                </ion-text>
-              </ion-label>
-              <ion-label slot="end" class="ion-text-right country-cases">
-                <h2 class="text-bold">{{ countryStatus?.confirmed | number }}</h2>
-              </ion-label>
-            </ion-item>
+          <ion-card-content>
+            <ion-list *ngIf="countriesStatus">
+              <ion-item *ngFor="let countryStatus of countriesStatus | slice:0:10" class="ion-no-padding ion-activatable" tappable detail (click)="goToDetail(countryStatus.country)">
+                <ion-ripple-effect></ion-ripple-effect>
+                <ion-avatar>
+                  <span [ngClass]="'flag-icon flag-icon-' + countryStatus?.country?.code?.toLowerCase()"></span>
+                </ion-avatar>
+                <ion-label>
+                  <h2 class="text-semibold">{{ countryStatus?.country?.name }}</h2>
+                  <ion-text color="success">
+                    <p class="ion-text-wrap">{{ countryStatus?.recovered | number }} recovered</p>
+                  </ion-text>
+                </ion-label>
+                <ion-label slot="end" class="ion-text-right country-cases">
+                  <h2 class="text-bold">{{ countryStatus?.confirmed | number }}</h2>
+                </ion-label>
+              </ion-item>
+            </ion-list>
+            <ion-list *ngIf="!countriesStatus">
+              <ion-item *ngFor="let i of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]">
+                <ion-avatar slot="start">
+                  <ion-skeleton-text animated></ion-skeleton-text>
+                </ion-avatar>
+                <ion-label>
+                  <h3>
+                    <ion-skeleton-text animated style="width: 70px"></ion-skeleton-text>
+                  </h3>
+                  <p>
+                    <ion-skeleton-text animated style="width: 120px"></ion-skeleton-text>
+                  </p>
+                </ion-label>
+                <ion-label slot="end" class="ion-text-right country-cases">
+                  <ion-skeleton-text animated style="width: 80px"></ion-skeleton-text>
+                </ion-label>
+              </ion-item>
+            </ion-list>
           </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>
+
+
 
     <!-- CONTRIBUTE CARDS -->
     <ion-row>

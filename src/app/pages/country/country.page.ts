@@ -36,28 +36,43 @@ export class CountryPage implements OnInit {
             .map(t => t.updatedAt.getDate() + '/' + (t.updatedAt.getMonth() + 1)),
           datasets: [
             {
-              label: "My First dataset",
-              fill: false,
-              lineTension: 0.1,
-              backgroundColor: "rgba(75,192,192,0.4)",
+              fill: true,
+              lineTension: 1,
+              backgroundColor: "rgba(249,113,113,.2)",
+              borderWidth: 5,
               borderColor: "rgba(75,192,192,1)",
               borderCapStyle: "butt",
-              borderDash: [],
               borderDashOffset: 0.0,
-              borderJoinStyle: "miter",
               pointBorderColor: "rgba(75,192,192,1)",
               pointBackgroundColor: "#fff",
               pointBorderWidth: 1,
               pointHoverRadius: 5,
-              pointHoverBackgroundColor: "rgba(75,192,192,1)",
-              pointHoverBorderColor: "rgba(220,220,220,1)",
+              pointHoverBackgroundColor: "rgba(249, 113, 113, .8)",
+              pointHoverBorderColor: "#8a6b85",
               pointHoverBorderWidth: 2,
               pointRadius: 1,
-              pointHitRadius: 10,
+              pointHitRadius: 12,
               data: this.countryStatus.timeline.map(t => t.confirmed),
               spanGaps: false
             }
-          ]
+          ],
+        },
+        options: {
+          legend: {
+            display: false
+          },
+          scales: {
+            xAxes: [{
+                gridLines: {
+                  color: "rgba(0, 0, 0, 0.05)",
+                }
+            }],
+            yAxes: [{
+                gridLines: {
+                  color: "rgba(0, 0, 0, 0.05)",
+                }   
+            }]
+          }
         }
       });
     }

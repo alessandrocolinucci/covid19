@@ -16,7 +16,7 @@
           <ion-col size="12">
             <ion-card mode="ios">
               <ion-card-header>
-                <ion-card-title>General</ion-card-title>
+                <ion-card-title>Report</ion-card-title>
                 <span [ngClass]="'flag-icon flag-icon-' + countryStatus?.country?.code?.toLowerCase()"></span>
               </ion-card-header>
               <ion-card-content>
@@ -24,34 +24,34 @@
                   <ion-item class="ion-no-padding" lines="full">
                     <ion-icon name="medkit-outline" slot="start"></ion-icon>
                     <ion-label>
-                      <h2 class="text-semibold">Infected</h2>
+                      <h2>Infected</h2>
                     </ion-label>
                     <ion-label slot="end" class="ion-text-right country-cases">
                       <h2 class="text-bold">{{ countryStatus?.confirmed | number }}</h2>
                     </ion-label>
                   </ion-item>
                   <ion-item class="ion-no-padding" lines="full">
-                    <ion-icon name="medkit-outline" slot="start"></ion-icon>
+                    <ion-icon name="bed-outline" slot="start"></ion-icon>
                     <ion-label>
-                      <h2 class="text-semibold">Deaths</h2>
+                      <h2>Deaths</h2>
                     </ion-label>
                     <ion-label slot="end" class="ion-text-right country-cases">
                       <h2 class="text-bold">{{ countryStatus?.deaths | number }}</h2>
                     </ion-label>
                   </ion-item>
                   <ion-item class="ion-no-padding" lines="full">
-                    <ion-icon name="medkit-outline" slot="start"></ion-icon>
+                    <ion-icon name="shield-checkmark-outline" slot="start"></ion-icon>
                     <ion-label>
-                      <h2 class="text-semibold">Recovered</h2>
+                      <h2>Recovered</h2>
                     </ion-label>
                     <ion-label slot="end" class="ion-text-right country-cases">
                       <h2 class="text-bold">{{ countryStatus?.recovered | number }}</h2>
                     </ion-label>
                   </ion-item>
                   <ion-item class="ion-no-padding" lines="full">
-                    <ion-icon name="medkit-outline" slot="start"></ion-icon>
+                    <ion-icon name="pulse-outline" slot="start"></ion-icon>
                     <ion-label>
-                      <h2 class="text-semibold">Critical</h2>
+                      <h2>Critical</h2>
                     </ion-label>
                     <ion-label slot="end" class="ion-text-right country-cases">
                       <h2 class="text-bold">{{ countryStatus?.critical | number }}</h2>
@@ -81,7 +81,7 @@
                     </ion-label>
                   </ion-item>
                   <ion-item class="ion-no-padding" lines="full">
-                    <ion-icon name="medkit-outline" slot="start"></ion-icon>
+                    <ion-icon name="bed-outline" slot="start"></ion-icon>
                     <ion-label>
                       <h2 class="text-semibold">Deaths</h2>
                     </ion-label>
@@ -202,11 +202,14 @@
       </ion-col>
     </ion-row>
 
-    <ion-row>
+    <ion-row class="ion-padding">
       <ion-col size="12">
         <ion-card mode="ios">
-          <ion-card-header>
-            <ion-card-title></ion-card-title>
+          <ion-card-header *ngIf="countryStatus">
+            <ion-card-subtitle>
+              First infected 
+            </ion-card-subtitle>
+            <ion-card-title>Covid-19 curve</ion-card-title>
           </ion-card-header>
           <ion-card-content>
             <canvas #lineChart></canvas>
