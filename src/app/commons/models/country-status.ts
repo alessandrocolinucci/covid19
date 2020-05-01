@@ -51,7 +51,9 @@ export class CountryStatus {
     recovered: number;
     critical: number;
     deaths: number;
+    active: number;
     newConfirmed: number;
+    newRecovered: number;
     newDeaths: number;
     stats: Stats;
     updatedAt: Date;
@@ -68,12 +70,14 @@ export class CountryStatus {
                     longitude: dto.coordinates.longitude
                 }
             }
-            this.confirmed = dto.latest_data.confirmed;
-            this.recovered = dto.latest_data.recovered;
+            this.confirmed = dto.timeline ? dto.timeline[0].confirmed : dto.latest_data.confirmed;
+            this.recovered = dto.timeline ? dto.timeline[0].recovered : dto.latest_data.recovered;
+            this.deaths = dto.timeline ? dto.timeline[0].deaths : dto.latest_data.deaths;
+            this.active = dto.timeline ? dto.timeline[0].active : 0;
             this.critical = dto.latest_data.critical;
-            this.deaths = dto.latest_data.deaths;
-            this.newConfirmed = dto.today.confirmed;
-            this.newDeaths = dto.today.deaths;
+            this.newConfirmed = dto.timeline ? dto.timeline[0].new_confirmed : dto.today.confirmed;
+            this.newDeaths = dto.timeline ? dto.timeline[0].new_deaths : dto.today.deaths;
+            this.newRecovered = dto.timeline ? dto.timeline[0].new_recovered : 0;
             this.stats = {
                 casesPerMillionPopulation: dto.latest_data.calculated.cases_per_million_population,
                 deathRate: dto.latest_data.calculated.death_rate,
@@ -85,4 +89,19 @@ export class CountryStatus {
         }
     }
     
+    get todayInfected(): number {
+        return this.timeline[this.timeline.length - 1].newConfirmed;
+    }
+
+    get todayRecovered(): number {
+        return this.timeline[this.timeline.length - 1].newRecovered;
+    }
+
+    get todayDeaths(): number {
+        return this.timeline[this.timeline.length - 1].newDeaths;
+    }
+
+    get firstInfectedDate(): Date {
+        return this.timeline[0].date;
+    }
 }

@@ -81,4 +81,5 @@ export class CountryPage implements OnInit {
   get populationInfectedRatio(): string {
     return this.countryStatus ? ((this.countryStatus.confirmed / this.countryStatus.country.population) * 100).toFixed(2) : '';
   }
+
 }
