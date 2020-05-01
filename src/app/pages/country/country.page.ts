@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { CountryStatus } from 'src/app/commons/models/country-status';
 import { Chart } from 'chart.js';
 
+export type ReportType = 'today' | 'full';
+
 @Component({
   selector: 'app-country',
   templateUrl: './country.page.html',
@@ -16,12 +18,13 @@ export class CountryPage implements OnInit {
   bars: any;
   colorArray: any;
 
+  showTodayReport: ReportType = 'full';
+
   constructor(
     private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    console.log(this.route.snapshot.data["countryStatus"]);
     this.countryStatus = this.route.snapshot.data.countryStatus;
     this.createLineChart();
   }
@@ -76,6 +79,10 @@ export class CountryPage implements OnInit {
         }
       });
     }
+  }
+
+  changeReport(e: CustomEvent) {
+    this.showTodayReport = e.detail.value;
   }
 
   get populationInfectedRatio(): string {

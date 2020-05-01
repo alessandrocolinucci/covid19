@@ -80,9 +80,9 @@ export class CountryStatus {
             this.newRecovered = dto.timeline ? dto.timeline[0].new_recovered : 0;
             this.stats = {
                 casesPerMillionPopulation: dto.latest_data.calculated.cases_per_million_population,
-                deathRate: dto.latest_data.calculated.death_rate,
+                deathRate: (this.deaths / this.confirmed) * 100,
                 recoveredVsDeathRatio: dto.latest_data.calculated.recovered_vs_death_ratio,
-                recoveryRate: dto.latest_data.calculated.recovery_rate
+                recoveryRate: (this.recovered / this.confirmed) * 100
             }
             this.updatedAt = dto.updated_at ? new Date(dto.updated_at) : null;
             this.timeline = dto.timeline ? dto.timeline.map(t => new TimelineStatus(t)) : null;

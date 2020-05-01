@@ -12,7 +12,6 @@ export class ThemeService {
   }
 
   toggleMode(checked: boolean) {
-    console.log(`Dark Mode: ${checked}`);
     window.document.body.classList.toggle('dark', checked);
   }
 
