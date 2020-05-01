@@ -216,7 +216,7 @@
         <ion-card mode="ios">
           <ion-card-header *ngIf="countryStatus">
             <ion-card-subtitle>
-              First infected {{ countryStatus?.firstInfectedDate | date : 'dd MMMM' }}
+              First infected: {{ countryStatus?.firstInfectedDate | date : 'dd MMMM' }}
             </ion-card-subtitle>
             <ion-card-title>Covid-19 curve</ion-card-title>
           </ion-card-header>
