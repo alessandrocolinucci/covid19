@@ -84,7 +84,7 @@
                       <h2 class="text-semibold">Active</h2>
                     </ion-label>
                     <ion-label slot="end" class="ion-text-right country-cases">
-                      <h2 class="text-bold">{{ countryStatus?.todayInfected | number }}</h2>
+                      <h2 class="text-bold">{{ countryStatus?.active | number }}</h2>
                     </ion-label>
                   </ion-item>
                   <ion-item class="ion-no-padding" lines="full">
@@ -93,7 +93,7 @@
                       <h2 class="text-semibold">Critical</h2>
                     </ion-label>
                     <ion-label slot="end" class="ion-text-right country-cases">
-                      <h2 class="text-bold">{{ countryStatus?.todayDeaths | number }}</h2>
+                      <h2 class="text-bold">{{ countryStatus?.critical | number }}</h2>
                     </ion-label>
                   </ion-item>
                 </ion-list>
