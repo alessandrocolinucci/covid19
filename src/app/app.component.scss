@@ -5,9 +5,10 @@ ion-content {
         height: 100%;
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
 
         img.menu-cover {
-            height: 35vh;
+            height: 30vh;
             width: 100%;
             object-fit: cover;
             object-position: center;

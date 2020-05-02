@@ -1,0 +1,31 @@
+
+.ios-pwa {
+
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    &__logo {
+        width: 56px;
+        height: 56px;
+        border-radius: 15px;
+        display: block;
+        margin: 0 auto 16px auto;
+    }
+
+    &__title {
+        margin-bottom: 16px;
+    }
+}
+
+ion-footer {
+
+    ion-title {
+
+        ion-icon {
+            color: #006CFF;
+            font-size: 24px;
+        }
+    }
+}

@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { VERSION } from './../environments/version';
 import { ThemeService } from './commons/services/theme.service';
+import { PlatformService } from './commons/services/platform.service';
+import { PopoverService } from './commons/services/popover.service';
+import { IosPwaPopoverComponent } from './commons/modules/shared/components/ios-pwa-popover/ios-pwa-popover.component';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -26,7 +30,9 @@ export class AppComponent implements OnInit {
   ];
 
   constructor(
-    private themeService: ThemeService
+    private themeService: ThemeService,
+    private platformService: PlatformService,
+    private popoverService: PopoverService
   ) {
     this.initializeApp();
   }
@@ -35,8 +41,20 @@ export class AppComponent implements OnInit {
 
   ngOnInit() { }
 
+  addIosPwa() {
+    this.popoverService.showPopover({
+      component: IosPwaPopoverComponent,
+      showBackdrop: true,
+      backdropDismiss: true,
+      cssClass: 'ios-pwa-popover'
+    }).pipe(take(1)).subscribe();
+  }
+
   toggleDarkMode(ev: CustomEvent) {
     this.themeService.toggleMode(ev.detail.checked);
   }
 
+  get isInstallable(): boolean {
+    return (this.platformService.isIPad() || this.platformService.isIPhone()) && !this.platformService.isInStandaloneMode();
+  }
 }

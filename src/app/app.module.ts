@@ -8,14 +8,16 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { PopoverService } from './commons/services/popover.service';
+import { SharedModule } from './commons/modules/shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
-  entryComponents: [],
   imports: [
     BrowserModule,
+    SharedModule,
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
@@ -24,6 +26,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
   providers: [
     StatusBar,
     SplashScreen,
+    PopoverService,
     { 
       provide: RouteReuseStrategy, 
       useClass: IonicRouteStrategy 

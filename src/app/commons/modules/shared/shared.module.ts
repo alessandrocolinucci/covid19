@@ -1,22 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MortalityRatePopoverComponent } from './components/mortality-rate-popover/mortality-rate-popover.component';
 import { DateAgoPipe } from './pipes/date-ago.pipe';
+import { IosPwaPopoverComponent } from './components/ios-pwa-popover/ios-pwa-popover.component';
+import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   declarations: [
-    MortalityRatePopoverComponent,
+    IosPwaPopoverComponent,
     DateAgoPipe
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    IonicModule
   ],
   exports: [
-    MortalityRatePopoverComponent,
+    IosPwaPopoverComponent,
     DateAgoPipe
   ],
   entryComponents: [
-    MortalityRatePopoverComponent
+    IosPwaPopoverComponent
   ]
 })
 export class SharedModule { }
