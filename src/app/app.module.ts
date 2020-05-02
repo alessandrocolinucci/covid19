@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { PopoverService } from './commons/services/popover.service';
 import { SharedModule } from './commons/modules/shared/shared.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { SharedModule } from './commons/modules/shared/shared.module';
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-    NgCircleProgressModule.forRoot()
+    NgCircleProgressModule.forRoot(),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     StatusBar,
