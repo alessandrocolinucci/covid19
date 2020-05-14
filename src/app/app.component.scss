@@ -34,7 +34,7 @@ ion-content {
         background: transparent;
     
         &.selected {
-            font-family: 'Manrope-Bold' !important;
+            font-weight: 700;
             color: var(--ion-color-primary);
 
             ion-icon {
