@@ -194,11 +194,11 @@
         <ion-card mode="ios">
           <ion-card-header>
             <ion-card-subtitle *ngIf="countriesStatus">Updated {{ countriesStatus[0]?.updatedAt | dateAgo }}</ion-card-subtitle>
-            <ion-card-title>Top 10 countries</ion-card-title>
+            <ion-card-title>Top 15 countries</ion-card-title>
           </ion-card-header>
           <ion-card-content>
             <ion-list *ngIf="countriesStatus">
-              <ion-item *ngFor="let countryStatus of countriesStatus | slice:0:10" class="ion-no-padding ion-activatable" tappable detail (click)="goToDetail(countryStatus.country)">
+              <ion-item *ngFor="let countryStatus of countriesStatus | slice:0:15" class="ion-no-padding ion-activatable" tappable detail (click)="goToDetail(countryStatus.country)">
                 <ion-ripple-effect></ion-ripple-effect>
                 <ion-avatar>
                   <span [ngClass]="'flag-icon flag-icon-' + countryStatus?.country?.code?.toLowerCase()"></span>
