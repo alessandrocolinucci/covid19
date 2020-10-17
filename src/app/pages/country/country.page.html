@@ -21,15 +21,15 @@
           <ion-col size="12">
             <ion-card mode="ios">
               <ion-card-header>
-                <ion-card-subtitle>Updated {{ countryStatus?.updatedAt | dateAgo }}</ion-card-subtitle>
-                <ion-card-title class="ion-margin-bottom">Live Report</ion-card-title>
+                <!-- <ion-card-subtitle>Updated {{ countryStatus?.updatedAt | dateAgo }}</ion-card-subtitle> -->
+                <ion-card-title class="ion-margin-bottom">Report in <br>tempo reale</ion-card-title>
                 <span [ngClass]="'flag-icon flag-icon-' + countryStatus?.country?.code?.toLowerCase()"></span>
                 <ion-segment (ionChange)="changeReport($event)" [value]="showTodayReport" mode="ios">
                   <ion-segment-button value="full">
-                    <ion-label>Full</ion-label>
+                    <ion-label>Generale</ion-label>
                   </ion-segment-button>
                   <ion-segment-button value="today">
-                    <ion-label>Today</ion-label>
+                    <ion-label>Oggi</ion-label>
                   </ion-segment-button>
                 </ion-segment>
               </ion-card-header>
@@ -38,7 +38,7 @@
                   <ion-item class="ion-no-padding" lines="full">
                     <ion-icon name="medkit-outline" slot="start"></ion-icon>
                     <ion-label>
-                      <h2>Infected</h2>
+                      <h2>Infetti</h2>
                     </ion-label>
                     <ion-label slot="end" class="ion-text-right country-cases">
                       <h2 class="text-bold" *ngIf="showTodayReport == 'full'">{{ countryStatus?.confirmed | number }}</h2>
@@ -73,29 +73,29 @@
             <ion-card mode="ios">
               <ion-card-header>
                 <ion-card-title>
-                  Status
+                  Situazione
                 </ion-card-title>
               </ion-card-header>
               <ion-card-content>
                 <ion-list>
                   <ion-item class="ion-no-padding" lines="full">
-                    <ion-icon name="people-outline" slot="start"></ion-icon>
+                    <ion-icon name="pulse-outline" slot="start"></ion-icon>
                     <ion-label>
-                      <h2 class="text-semibold">Active</h2>
+                      <h2 class="text-semibold">Casi attivi</h2>
                     </ion-label>
                     <ion-label slot="end" class="ion-text-right country-cases">
                       <h2 class="text-bold">{{ countryStatus?.active | number }}</h2>
                     </ion-label>
                   </ion-item>
-                  <ion-item class="ion-no-padding" lines="full">
+                  <!-- <ion-item class="ion-no-padding" lines="full">
                     <ion-icon name="pulse-outline" slot="start"></ion-icon>
                     <ion-label>
-                      <h2 class="text-semibold">Critical</h2>
+                      <h2 class="text-semibold">Casi critici</h2>
                     </ion-label>
                     <ion-label slot="end" class="ion-text-right country-cases">
                       <h2 class="text-bold">{{ countryStatus?.critical | number }}</h2>
                     </ion-label>
-                  </ion-item>
+                  </ion-item> -->
                 </ion-list>
               </ion-card-content>
             </ion-card>
@@ -109,19 +109,19 @@
             <ion-card mode="ios">
               <ion-card-header>
                 <ion-card-subtitle>
-                  Population: 
+                  Popolazione: 
                   <span class="text-bold">{{ countryStatus?.country?.population | number }}</span>
                 </ion-card-subtitle>
                 <ion-card-title class="population-title">
                   {{ countryStatus?.stats?.casesPerMillionPopulation | number }}
-                  <span class="percentage">cases</span>
-                  <p class="percentage">per 1M population</p>
+                  <span class="percentage">casi</span>
+                  <p class="percentage">ogni 1M abitanti</p>
                 </ion-card-title>
               </ion-card-header>
               <ion-card-content>
                 <ion-label>
-                  <p class="ion-text-wrap"><span class="text-bold">{{ countryStatus?.confirmed | number }}</span> infected</p>
-                  <p class="ion-text-wrap"><span class="text-bold">{{ populationInfectedRatio }}%</span> of the population is infected</p>
+                  <p class="ion-text-wrap"><span class="text-bold">{{ countryStatus?.confirmed | number }}</span> infetti</p>
+                  <p class="ion-text-wrap"><span class="text-bold">{{ populationInfectedRatio }}%</span> della popolazione infetta</p>
                 </ion-label>
               </ion-card-content>
               <circle-progress 
@@ -145,15 +145,15 @@
           <ion-col size="12">
             <ion-card mode="ios">
               <ion-card-header>
-                <ion-card-subtitle>Recovery Ratio</ion-card-subtitle>
+                <ion-card-subtitle>Percentuale recuperati</ion-card-subtitle>
                 <ion-card-title>
                   {{ countryStatus?.stats?.recoveryRate.toFixed(2) }}<span class="percentage">%</span>
                 </ion-card-title>
               </ion-card-header>
               <ion-card-content>
                 <ion-label>
-                  <p class="ion-text-wrap"><span class="text-bold">{{ countryStatus?.confirmed | number }}</span> infected</p>
-                  <p class="ion-text-wrap"><span class="text-bold">{{ countryStatus?.recovered | number }}</span> recovered</p>
+                  <p class="ion-text-wrap"><span class="text-bold">{{ countryStatus?.confirmed | number }}</span> infetti</p>
+                  <p class="ion-text-wrap"><span class="text-bold">{{ countryStatus?.recovered | number }}</span> recuperati</p>
                 </ion-label>
               </ion-card-content>
               <circle-progress 
@@ -177,15 +177,15 @@
           <ion-col size="12">
             <ion-card mode="ios">
               <ion-card-header>
-                <ion-card-subtitle>Death Ratio</ion-card-subtitle>
+                <ion-card-subtitle>Percentuale morti</ion-card-subtitle>
                 <ion-card-title>
                   {{ countryStatus?.stats?.deathRate.toFixed(2) }}<span class="percentage">%</span>
                 </ion-card-title>
               </ion-card-header>
               <ion-card-content>
                 <ion-label>
-                  <p class="ion-text-wrap"><span class="text-bold">{{ countryStatus?.confirmed | number }}</span> infected</p>
-                  <p class="ion-text-wrap"><span class="text-bold">{{ countryStatus?.deaths | number }}</span> deaths</p>
+                  <p class="ion-text-wrap"><span class="text-bold">{{ countryStatus?.confirmed | number }}</span> infetti</p>
+                  <p class="ion-text-wrap"><span class="text-bold">{{ countryStatus?.deaths | number }}</span> morti</p>
                 </ion-label>
               </ion-card-content>
               <circle-progress 
@@ -216,9 +216,10 @@
         <ion-card mode="ios">
           <ion-card-header *ngIf="countryStatus">
             <ion-card-subtitle>
-              First infected: {{ countryStatus?.firstInfectedDate | date : 'dd MMMM' }}
+              Primo infetto: {{ countryStatus?.firstInfectedDate | date : 'dd/MM/yyyy' }}
             </ion-card-subtitle>
-            <ion-card-title>Covid-19 curve</ion-card-title>
+            <ion-card-title>Curva dei contagi</ion-card-title>
+            <ion-card-subtitle>Ultimi 60 giorni</ion-card-subtitle>
           </ion-card-header>
           <ion-card-content>
             <canvas #lineChart></canvas>

@@ -35,11 +35,11 @@
             <ion-card mode="ios" class="ion-no-margin">
               <ion-card-header>
                 <ion-card-title>
-                  Dark mode
+                  Tema scuro
                 </ion-card-title>  
               </ion-card-header>
               <ion-card-content>
-                <p class="ion-text-wrap">Activate dark mode to try a different experience.</p>
+                <p class="ion-text-wrap">Attiva il tema scuro per un'esperienza differente.</p>
                 <ion-item class="ion-margin-top ion-no-padding" lines="none">
                   <ion-icon slot="start" name="moon-outline" color="tertiary"></ion-icon>
                   <ion-toggle color="tertiary" slot="end" (ionChange)="toggleDarkMode($event)"></ion-toggle>
@@ -50,14 +50,14 @@
             <ion-card mode="ios" class="ion-no-margin ion-margin-vertical" *ngIf="isInstallable">
               <ion-card-header>
                 <ion-card-title>
-                  Install App
+                  Installa l'app
                 </ion-card-title>  
               </ion-card-header>
               <ion-card-content>
-                <p class="ion-text-wrap">Add this web application to your Home screen.</p>
+                <p class="ion-text-wrap">Aggiungi questa applicazione alla Home del tuo telefono</p>
                 <ion-item class="ion-margin-top ion-no-padding" lines="none">
                   <ion-icon color="primary" name="newspaper-outline" slot="start"></ion-icon>
-                  <ion-button color="primary" fill="outline" slot="end" (click)="addIosPwa()"><span class="text-bold">Add to Home</span></ion-button>
+                  <ion-button color="primary" fill="outline" slot="end" (click)="addIosPwa()"><span class="text-bold">Aggiungi</span></ion-button>
                 </ion-item>
               </ion-card-content>
             </ion-card>

@@ -22,7 +22,7 @@ export class DashboardPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.apiService.getGlobalTimeline().subscribe((timeline) => this.todayStatus = timeline.find(t => t.isInProgress == true));
+    this.apiService.getGlobalTimeline().subscribe((timeline) => this.todayStatus = timeline[0]);
     this.apiService.getCountriesStats().subscribe(countriesStatus => this.countriesStatus = countriesStatus.sort((a, b) => b.confirmed - a.confirmed));
   }
 

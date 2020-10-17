@@ -18,12 +18,12 @@ export class AppComponent implements OnInit {
   public selectedIndex = 0;
   public appPages = [
     {
-      title: 'Dashboard',
+      title: 'Home',
       url: '/',
       icon: 'grid-outline'
     },
     {
-      title: 'About',
+      title: 'Info',
       url: '/about',
       icon: 'information-circle-outline'
     }

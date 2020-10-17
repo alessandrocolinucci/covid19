@@ -13,7 +13,7 @@ export class CountryStatusResolver implements Resolve<any> {
   ) {}
 
   resolve(route: ActivatedRouteSnapshot) {
-    this.loadingService.show('Getting country info');
+    this.loadingService.show('Caricamento...');
     return this.apiService.getCountryStats(route.paramMap.get('code')).pipe(tap(() => {
       this.loadingService.hide();
     }));

@@ -30,13 +30,12 @@ export class CountryPage implements OnInit {
   }
 
   createLineChart() {
+    const timeline = this.countryStatus.timeline.reverse();
     if (this.lineChart) {
       this.lineChart = new Chart(this.lineChart.nativeElement, {
         type: "line",
         data: {
-          labels: this.countryStatus.timeline
-            .sort((a, b) => a.updatedAt.getTime() - b.updatedAt.getTime())
-            .map(t => t.updatedAt.getDate() + '/' + (t.updatedAt.getMonth() + 1)),
+          labels: timeline.map(t => t.updatedAt.getDate() + '/' + (t.updatedAt.getMonth() + 1)),
           datasets: [
             {
               fill: true,
@@ -55,7 +54,7 @@ export class CountryPage implements OnInit {
               pointHoverBorderWidth: 2,
               pointRadius: 1,
               pointHitRadius: 12,
-              data: this.countryStatus.timeline.map(t => t.confirmed),
+              data: timeline.map(t => t.newConfirmed),
               spanGaps: false
             }
           ],

@@ -14,12 +14,6 @@
         </svg>
       </div>    
     </ion-title>
-    <!-- TODO: research -->
-    <!-- <ion-buttons slot="primary">      
-      <ion-button>
-        <ion-icon slot="icon-only" name="search-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons> -->
   </ion-toolbar>
 </ion-header>
 
@@ -52,13 +46,13 @@
       <ion-col size-xl="3" size-lg="6" size-md="6" size-sm="12" size-xs="12">
         <ion-card mode="ios">
           <ion-card-header>
-            <ion-card-subtitle>Infected</ion-card-subtitle>
+            <ion-card-subtitle>Infetti</ion-card-subtitle>
             <ion-card-title>{{ todayStatus?.confirmed | number }}</ion-card-title>
             <ion-icon name="medkit-outline" color="tertiary" class="card-icon"></ion-icon>
           </ion-card-header>
           <ion-card-content>
             <ion-label>
-              <p class="ion-text-wrap"><span class="text-bold">+{{ todayStatus?.newConfirmed | number }}</span> today</p>
+              <p class="ion-text-wrap"><span class="text-bold">+{{ todayStatus?.newConfirmed | number }}</span> oggi</p>
             </ion-label>
           </ion-card-content>
         </ion-card>
@@ -66,13 +60,13 @@
       <ion-col size-xl="3" size-lg="6" size-md="6" size-sm="12" size-xs="12">
         <ion-card mode="ios">
           <ion-card-header>
-            <ion-card-subtitle>Recovered</ion-card-subtitle>
+            <ion-card-subtitle>Recuperati</ion-card-subtitle>
             <ion-card-title>{{ todayStatus.recovered | number }}</ion-card-title>
             <ion-icon name="shield-checkmark-outline" color="success" class="card-icon"></ion-icon>
           </ion-card-header>
           <ion-card-content>
             <ion-label>
-              <p class="ion-text-wrap"><span class="text-bold">+{{ todayStatus.newRecovered | number }}</span> today</p>
+              <p class="ion-text-wrap"><span class="text-bold">+{{ todayStatus.newRecovered | number }}</span> oggi</p>
             </ion-label>
           </ion-card-content>
         </ion-card>
@@ -80,13 +74,13 @@
       <ion-col size-xl="3" size-lg="6" size-md="6" size-sm="12" size-xs="12">
         <ion-card mode="ios">
           <ion-card-header>
-            <ion-card-subtitle>Deaths</ion-card-subtitle>
+            <ion-card-subtitle>Morti</ion-card-subtitle>
             <ion-card-title>{{ todayStatus.deaths | number }}</ion-card-title>
             <ion-icon name="bed-outline" color="danger" class="card-icon"></ion-icon>
           </ion-card-header>
           <ion-card-content>
             <ion-label>
-              <p class="ion-text-wrap"><span class="text-bold">+{{ todayStatus?.newDeaths | number }}</span> today</p>
+              <p class="ion-text-wrap"><span class="text-bold">+{{ todayStatus?.newDeaths | number }}</span> oggi</p>
             </ion-label>
           </ion-card-content>
         </ion-card>
@@ -94,13 +88,13 @@
       <ion-col size-xl="3" size-lg="6" size-md="6" size-sm="12" size-xs="12">
         <ion-card mode="ios">
           <ion-card-header>
-            <ion-card-subtitle>Active</ion-card-subtitle>
+            <ion-card-subtitle>Casi attivi</ion-card-subtitle>
             <ion-card-title>{{ todayStatus.active | number }}</ion-card-title>
             <ion-icon name="people-outline" color="warning" class="card-icon"></ion-icon>
           </ion-card-header>
           <ion-card-content>
             <ion-label *ngIf="countriesStatus">
-              <p class="ion-text-wrap"><span class="text-bold">{{ countriesStatus?.length }}</span> involved countries</p>
+              <p class="ion-text-wrap"><span class="text-bold">{{ countriesStatus?.length }}</span> paesi coinvolti</p>
             </ion-label>
           </ion-card-content>
         </ion-card>
@@ -129,13 +123,13 @@
       <ion-col size-lg="6" size-md="6" size-sm="12" size-xs="12">
         <ion-card mode="ios">
           <ion-card-header>
-            <ion-card-subtitle>Recovery Ratio</ion-card-subtitle>
+            <ion-card-subtitle>Percentuale recuperati</ion-card-subtitle>
             <ion-card-title>{{ recoveryRatio }}<span class="percentage">%</span></ion-card-title>
           </ion-card-header>
           <ion-card-content>
             <ion-label>
-              <p class="ion-text-wrap"><span class="text-bold">{{ todayStatus?.confirmed | number }}</span> infected</p>
-              <p class="ion-text-wrap"><span class="text-bold">{{ todayStatus?.recovered | number }}</span> recovered</p>
+              <p class="ion-text-wrap"><span class="text-bold">{{ todayStatus?.confirmed | number }}</span> infetti</p>
+              <p class="ion-text-wrap"><span class="text-bold">{{ todayStatus?.recovered | number }}</span> recuperati</p>
             </ion-label>
           </ion-card-content>
           <circle-progress 
@@ -159,13 +153,13 @@
       <ion-col size-lg="6" size-md="6" size-sm="12" size-xs="12">
         <ion-card mode="ios">
           <ion-card-header>
-            <ion-card-subtitle>Death ratio</ion-card-subtitle>
+            <ion-card-subtitle>Percentuale morti</ion-card-subtitle>
             <ion-card-title>{{ deathRatio }}<span class="percentage">%</span></ion-card-title>
           </ion-card-header>
           <ion-card-content>
             <ion-label>
-              <p class="ion-text-wrap"><span class="text-bold">{{ todayStatus?.confirmed | number }}</span> infected</p>
-              <p class="ion-text-wrap"><span class="text-bold">{{ todayStatus?.deaths | number }}</span> deaths</p>
+              <p class="ion-text-wrap"><span class="text-bold">{{ todayStatus?.confirmed | number }}</span> infetti</p>
+              <p class="ion-text-wrap"><span class="text-bold">{{ todayStatus?.deaths | number }}</span> morti</p>
             </ion-label>
           </ion-card-content>
           <circle-progress 
@@ -188,13 +182,13 @@
       </ion-col>
     </ion-row>
 
-    <!-- TOP 10 COUNTRIES -->
+    <!-- TOP 15 COUNTRIES -->
     <ion-row>
       <ion-col>
         <ion-card mode="ios">
           <ion-card-header>
-            <ion-card-subtitle *ngIf="countriesStatus">Updated {{ countriesStatus[0]?.updatedAt | dateAgo }}</ion-card-subtitle>
-            <ion-card-title>Top 15 countries</ion-card-title>
+            <!-- <ion-card-subtitle *ngIf="countriesStatus">Aggiornato {{ countriesStatus[0]?.updatedAt | dateAgo }}</ion-card-subtitle> -->
+            <ion-card-title>Top 15 paesi</ion-card-title>
           </ion-card-header>
           <ion-card-content>
             <ion-list *ngIf="countriesStatus">
@@ -206,7 +200,7 @@
                 <ion-label>
                   <h2 class="text-semibold">{{ countryStatus?.country?.name }}</h2>
                   <ion-text color="danger">
-                    <p class="ion-text-wrap">{{ countryStatus?.deaths | number }} deaths</p>
+                    <p class="ion-text-wrap">{{ countryStatus?.deaths | number }} morti</p>
                   </ion-text>
                 </ion-label>
                 <ion-label slot="end" class="ion-text-right country-cases">
@@ -248,7 +242,7 @@
           <ion-card-content>
             <ion-item class="ion-margin-top ion-no-padding">
               <ion-icon color="primary" name="newspaper-outline" slot="start"></ion-icon>
-              <ion-button href="https://medium.com/topic/coronavirus" target="_blank" color="primary" fill="clear" slot="end"><span class="text-bold">Read more on Medium</span></ion-button>
+              <ion-button href="https://medium.com/topic/coronavirus" target="_blank" color="primary" fill="clear" slot="end"><span class="text-bold">Leggi su Medium</span></ion-button>
             </ion-item>
           </ion-card-content>
         </ion-card>
@@ -256,13 +250,13 @@
       <ion-col>
         <ion-card mode="ios">
           <ion-card-header>
-            <ion-card-title>Symptoms</ion-card-title>  
+            <ion-card-title>Sintomi</ion-card-title>  
             <img src="/assets/img/covid__symptoms.svg" alt="Covid19 Symptoms" class="illustration">
           </ion-card-header>
           <ion-card-content>
             <ion-item class="ion-margin-top ion-no-padding">
               <ion-icon color="secondary" name="document-text-outline" slot="start"></ion-icon>
-              <ion-button href="/assets/doc/COVID19-symptoms.pdf" download color="secondary" fill="clear" slot="end"><span class="text-bold">Read the symptoms</span></ion-button>
+              <ion-button href="/assets/doc/COVID19-symptoms.pdf" download color="secondary" fill="clear" slot="end"><span class="text-bold">Leggi i sintomi</span></ion-button>
             </ion-item>
           </ion-card-content>
         </ion-card>
@@ -270,13 +264,13 @@
       <ion-col>
         <ion-card mode="ios">
           <ion-card-header>
-            <ion-card-title>Donate</ion-card-title>
+            <ion-card-title>Dona ora</ion-card-title>
             <img src="/assets/img/covid__donate.svg" alt="Covid19 News" class="illustration">
           </ion-card-header>
           <ion-card-content>
             <ion-item class="ion-margin-top ion-no-padding">
               <ion-icon color="tertiary" name="wallet-outline" slot="start"></ion-icon>
-              <ion-button href="https://covid19responsefund.org/" target="_blank" color="tertiary" fill="clear" slot="end"><span class="text-bold">Help fight Covid-19</span></ion-button>
+              <ion-button href="https://covid19responsefund.org/" target="_blank" color="tertiary" fill="clear" slot="end"><span class="text-bold">Aiuta a combattere il Covid-19</span></ion-button>
             </ion-item>
           </ion-card-content>
         </ion-card>

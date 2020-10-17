@@ -22,13 +22,13 @@
 
             <ion-item>
               <ion-icon slot="start" name="medkit-outline"></ion-icon>
-              <ion-label>Infected</ion-label>
+              <ion-label>Infetti</ion-label>
               <ion-note slot="end" mode="ios">{{ countryStatus?.confirmed }}</ion-note>
             </ion-item>
 
             <ion-item>
               <ion-icon slot="start" name="bed-outline" color="success"></ion-icon>
-              <ion-label color="success">Recovered</ion-label>
+              <ion-label color="success">Recuperati</ion-label>
               <ion-note slot="end" mode="ios" color="success">
                 {{ countryStatus?.recovered }} 
                 <span class="rate">({{ countryStatus?.stats.recoveryRate.toFixed(2) }}%)</span>
@@ -37,7 +37,7 @@
 
             <ion-item>
               <ion-icon slot="start" name="bed-outline" color="danger"></ion-icon>
-              <ion-label color="danger">Deaths</ion-label>
+              <ion-label color="danger">Morti</ion-label>
               <ion-note slot="end" mode="ios" color="danger">
                 {{ countryStatus?.deaths }} 
                 <span class="rate">({{ countryStatus?.stats.deathRate.toFixed(2) }}%)</span>
@@ -53,7 +53,7 @@
 
             <ion-item>
               <ion-icon slot="start" name="shield-checkmark-outline"></ion-icon>
-              <ion-label>Today infected</ion-label>
+              <ion-label>Nuovi infetti</ion-label>
               <ion-note slot="end" mode="ios">
                 {{ countryStatus?.deaths }} 
                 <span class="rate">({{ countryStatus?.recovered }}%)</span>
@@ -62,7 +62,7 @@
 
             <ion-item>
               <ion-icon slot="start" name="pulse-outline"></ion-icon>
-              <ion-label>Today deaths</ion-label>
+              <ion-label>Nuove morti</ion-label>
               <ion-note slot="end" mode="ios">
                 {{ countryStatus?.deaths }} 
                 <span class="rate">({{ countryStatus?.critical }}%)</span>
